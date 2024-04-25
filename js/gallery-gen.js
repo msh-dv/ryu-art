@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
     imageDiv.classList.add("image-container");
 
     const img = document.createElement("img");
-    img.src = "../images/" + image;
+    img.loading = "lazy";
+    img.src = "images/" + image;
     img.alt = "img";
 
     imageDiv.appendChild(img);
