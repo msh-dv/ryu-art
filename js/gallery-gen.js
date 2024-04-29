@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const images = [];
 
-  for (let i = 1; i < 25; i++) {
+  for (let i = 1; i < 27; i++) {
     images[i] = `media_${i}.png`;
   }
 
