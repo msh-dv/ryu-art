@@ -81,7 +81,7 @@ html {
 }
 #menu-container:focus-within .button {
   transition: 300ms;
-  transform: rotate(90deg);
+  transform: translateX(21em) rotate(90deg);
 }
 
 #menu-content {
@@ -92,9 +92,64 @@ html {
   background-color: #131716;
   margin-top: 4em;
   height: calc(100vh - 4em);
-  width: 40%;
+  width: 30%;
   transition: 0.3s;
   transform: translateX(-100%);
+}
+#menu-content ul {
+  list-style: none;
+  padding: 1em;
+  margin: 0;
+  display: flex;
+  gap: 0.2em;
+  flex-flow: column wrap;
+}
+#menu-content ul li {
+  padding: 0.3em;
+  display: flex;
+  gap: 1em;
+  flex-flow: row wrap;
+}
+#menu-content ul li .menu-icon {
+  height: 3em;
+  width: 3em;
+  display: block;
+}
+#menu-content ul li .menu-icon #trend path {
+  stroke: #f5501a;
+}
+#menu-content ul li .menu-icon #rate path {
+  stroke: #ffcd23;
+}
+#menu-content ul li .menu-icon #random {
+  fill: #2fc9c5;
+}
+#menu-content ul li .menu-icon svg {
+  width: 3em;
+  height: 3em;
+}
+#menu-content .menu-link {
+  display: flex;
+  align-items: center;
+  color: #fefdfb;
+  font-weight: 600;
+  font-size: 1.6em;
+  text-decoration: none;
+}
+
+#trend-cont:hover {
+  background-color: rgba(245, 80, 26, 0.2470588235);
+  transition: 0.3s;
+}
+
+#rate-cont:hover {
+  transition: 0.3s;
+  background-color: rgba(255, 205, 35, 0.2470588235);
+}
+
+#random-cont:hover {
+  transition: 0.3s;
+  background-color: rgba(47, 201, 197, 0.2470588235);
 }
 
 body {
@@ -157,8 +212,12 @@ main {
   .image-container img {
     border-radius: 0;
   }
+  #menu-container:focus-within .button {
+    transition: 300ms;
+    transform: translateX(0) rotate(90deg);
+  }
   #menu-content {
-    width: 100%;
+    width: 70%;
   }
 }
 

@@ -6,6 +6,13 @@ $bg2_color: #232726ff;
 $fg_color: #fefdfbff;
 $sbt_color: #a9bcbaff;
 $mtl_color: #6da7b0ff;
+$trend: #f5501aff;
+$random: #2fc9c5ff;
+$rate: #ffcd23ff;
+
+$trend_tp: #f5501a3f;
+$random_tp: #2fc9c53f;
+$rate_tp: #ffcd233f;
 
 *,
 *::before,
@@ -98,7 +105,7 @@ html {
 
   &:focus-within .button {
     transition: 300ms;
-    transform: rotate(90deg);
+    transform:translateX(21em) rotate(90deg);
   }
 }
 
@@ -110,9 +117,72 @@ html {
   background-color: $bg_color;
   margin-top: 4em;
   height: calc(100vh - 4em);
-  width: 40%;
+  width: 30%;
   transition: 0.3s;
   transform: translateX(-100%);
+
+  & ul {
+    list-style: none;
+    padding: 1em;
+    margin: 0;
+    display: flex;
+    gap: 0.2em;
+    flex-flow: column wrap;
+
+    & li {
+      padding: 0.3em;
+      display: flex;
+      gap: 1em;
+      flex-flow: row wrap;
+
+      & .menu-icon {
+        height: 3em;
+        width: 3em;
+        display: block;
+
+        & #trend path {
+          stroke: $trend;
+        }
+
+        & #rate path {
+          stroke: $rate;
+        }
+
+        & #random {
+          fill: $random;
+        }
+
+        & svg {
+          width: 3em;
+          height: 3em;
+        }
+      }
+    }
+  }
+
+  & .menu-link {
+    display: flex;
+    align-items: center;
+    color: $fg_color;
+    font-weight: 600;
+    font-size: 1.6em;
+    text-decoration: none;
+  }
+}
+
+#trend-cont:hover {
+  background-color: $trend_tp;
+  transition: 0.3s;
+}
+
+#rate-cont:hover {
+  transition: 0.3s;
+  background-color: $rate_tp;
+}
+
+#random-cont:hover {
+  transition: 0.3s;
+  background-color: $random_tp;
 }
 
 body {
@@ -124,7 +194,7 @@ body {
 }
 
 .container {
-  margin-top:4em ;
+  margin-top: 4em;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
@@ -149,7 +219,7 @@ main {
 .image-container {
   cursor: pointer;
   flex: 10 0 20%;
-  &:hover{
+  &:hover {
     transition: 0.3s;
     filter: brightness(60%);
   }
@@ -167,19 +237,26 @@ main {
     flex: 1 0 50%;
   }
 
-  main{
+  main {
     padding: 0;
   }
 
-  .gallery{
-    gap:0;
+  .gallery {
+    gap: 0;
   }
 
-  .image-container img{
+  .image-container img {
     border-radius: 0;
   }
-  
-  #menu-content{
-    width: 100%;
+
+  #menu-container {
+    &:focus-within .button {
+      transition: 300ms;
+      transform:translateX(0) rotate(90deg);
+    }
+  }
+
+  #menu-content {
+    width: 70%;
   }
 }
