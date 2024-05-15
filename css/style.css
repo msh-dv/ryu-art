@@ -14,6 +14,7 @@ h2 {
 
 html {
   font-family: "Open Sans", sans-serif;
+  scroll-behavior: smooth;
   scrollbar-color: #fefdfb #131716;
   scrollbar-width: thin;
 }
@@ -30,8 +31,10 @@ html {
   position: fixed;
   top: 0;
 }
-#header h1 {
-  font-size: 2.1em;
+#header a {
+  text-decoration: none;
+  color: #fefdfb;
+  font-size: 1.5em;
 }
 
 #menu-container {
@@ -41,6 +44,24 @@ html {
   top: 0;
   position: fixed;
   pointer-events: none;
+}
+#menu-container .closeMenu {
+  opacity: 0;
+  z-index: 3;
+  transition: 300ms;
+  cursor: pointer;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  background-color: transparent;
+  border: none;
+}
+#menu-container .closeMenu svg {
+  width: 3em;
+  height: 3em;
+}
+#menu-container .closeMenu svg path {
+  fill: #fefdfb;
 }
 #menu-container .button {
   z-index: 2;
@@ -79,9 +100,15 @@ html {
 #menu-container:focus-within #menu-content {
   transform: none;
 }
+#menu-container:focus-within .closeMenu {
+  transition: 300ms;
+  transform: translateX(25em) rotate(90deg);
+  opacity: 1;
+}
 #menu-container:focus-within .button {
   transition: 300ms;
-  transform: translateX(21em) rotate(90deg);
+  opacity: 0;
+  transform: translateX(19em) rotate(90deg);
 }
 
 #menu-content {
@@ -285,9 +312,13 @@ main {
   .image-container img {
     border-radius: 0;
   }
-  #menu-container:focus-within .button {
+  #menu-container:focus-within .closeMenu {
     transition: 300ms;
     transform: translateX(0) rotate(90deg);
+  }
+  #menu-container:focus-within .button {
+    transition: 300ms;
+    transform: translateX(12rem) rotate(90deg);
   }
   #menu-content {
     width: 70%;
