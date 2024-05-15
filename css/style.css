@@ -184,12 +184,49 @@ main {
 }
 
 .image-container {
+  position: relative;
   cursor: pointer;
   flex: 10 0 20%;
 }
-.image-container:hover {
+.image-container:hover .info {
+  opacity: 1;
   transition: 0.3s;
-  filter: brightness(60%);
+  transform: none;
+}
+.image-container .info {
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(5px);
+  padding: 0 1em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2em;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.image-container .info .views {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+}
+.image-container .info .views::before {
+  height: 20px;
+  display: inline-block;
+  content: url(../images/views.svg);
+}
+.image-container .info .rate {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+}
+.image-container .info .rate::before {
+  height: 20px;
+  display: inline-block;
+  content: url(../images/rate.svg);
 }
 
 .gallery img {
@@ -197,6 +234,42 @@ main {
   width: 100%;
   height: 100%;
   border-radius: 0.5em;
+}
+
+.imageWin {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(19, 23, 22, 0.937254902);
+  transition: 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imageWin img {
+  transition: 0.3s;
+  width: auto;
+  height: 85%;
+}
+
+#closeBtn {
+  cursor: pointer;
+  position: absolute;
+  top: 3em;
+  right: 3em;
+  background-color: transparent;
+  border: none;
+}
+#closeBtn svg {
+  width: 3em;
+  height: 3em;
+}
+#closeBtn svg path {
+  fill: #fefdfb;
 }
 
 @media screen and (max-width: 768px) {
@@ -218,6 +291,10 @@ main {
   }
   #menu-content {
     width: 70%;
+  }
+  .imageWin img {
+    width: 90%;
+    height: auto;
   }
 }
 

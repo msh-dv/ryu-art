@@ -105,7 +105,7 @@ html {
 
   &:focus-within .button {
     transition: 300ms;
-    transform:translateX(21em) rotate(90deg);
+    transform: translateX(21em) rotate(90deg);
   }
 }
 
@@ -217,11 +217,53 @@ main {
 }
 
 .image-container {
+  position: relative;
   cursor: pointer;
   flex: 10 0 20%;
-  &:hover {
+
+  &:hover .info {
+    opacity: 1;
     transition: 0.3s;
-    filter: brightness(60%);
+    transform: none;
+  }
+
+  & .info {
+    transition: 0.3s;
+    opacity: 0;
+    transform: translateY(5px);
+    padding: 0 1em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2em;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+
+    & .views {
+      display: flex;
+      align-items: center;
+      gap: 0.2em;
+
+      &::before {
+        height: 20px;
+        display: inline-block;
+        content: url(../images/views.svg);
+      }
+    }
+
+    & .rate {
+      display: flex;
+      align-items: center;
+      gap: 0.2em;
+      &::before {
+        height: 20px;
+        display: inline-block;
+        content: url(../images/rate.svg);
+      }
+    }
   }
 }
 
@@ -230,6 +272,44 @@ main {
   width: 100%;
   height: 100%;
   border-radius: 0.5em;
+}
+
+.imageWin {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: $bg_color_tp;
+  transition: 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & img {
+    transition: 0.3s;
+    width: auto;
+    height: 85%;
+  }
+}
+
+#closeBtn {
+  cursor: pointer;
+  position: absolute;
+  top: 3em;
+  right: 3em;
+  background-color: transparent;
+  border: none;
+
+  & svg {
+   width: 3em; 
+   height: 3em; 
+   & path{
+     fill:$fg_color;
+   }
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -252,11 +332,18 @@ main {
   #menu-container {
     &:focus-within .button {
       transition: 300ms;
-      transform:translateX(0) rotate(90deg);
+      transform: translateX(0) rotate(90deg);
     }
   }
 
   #menu-content {
     width: 70%;
+  }
+
+  .imageWin {
+    & img {
+      width: 90%;
+      height: auto;
+    }
   }
 }
