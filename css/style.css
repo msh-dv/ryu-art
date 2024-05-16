@@ -124,13 +124,12 @@ html {
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
-}
-#menu-content * {
-  border: 1px solid #fefdfb;
+  transform: translateX(-100%);
 }
 #menu-content .code-link {
   width: 100%;
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   padding: 1em;
