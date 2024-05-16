@@ -121,7 +121,29 @@ html {
   height: calc(100vh - 4em);
   width: 30%;
   transition: 0.3s;
-  transform: translateX(-100%);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+#menu-content * {
+  border: 1px solid #fefdfb;
+}
+#menu-content .code-link {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+#menu-content .code-link a {
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #fefdfb;
+  transition: 0.3s;
+}
+#menu-content .code-link a:hover {
+  transform: scale(1.1);
 }
 #menu-content ul {
   list-style: none;

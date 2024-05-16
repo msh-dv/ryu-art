@@ -32,7 +32,6 @@ html {
   scroll-behavior: smooth;
   scrollbar-color: $fg_color $bg_color;
   scrollbar-width: thin;
-  
 }
 
 #header {
@@ -149,7 +148,30 @@ html {
   height: calc(100vh - 4em);
   width: 30%;
   transition: 0.3s;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
   transform: translateX(-100%);
+
+  & .code-link {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    & a {
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.2em;
+      color: $fg_color;
+      transition: 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
 
   & ul {
     list-style: none;

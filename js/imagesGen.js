@@ -120,19 +120,20 @@ const viewBtn = document.getElementById("views-link");
 const rateBtn = document.getElementById("rate-link");
 const randomBtn = document.getElementById("random-link");
 
-createHTML(sortedGallery("random", genObjImgList(images(totalImages))));
+let currentLayout = genObjImgList(images(totalImages));
+createHTML(sortedGallery("random", currentLayout));
 
 viewBtn.addEventListener("click", () => {
   galleryContainer.innerHTML = "";
-  createHTML(sortedGallery("views", genObjImgList(images(totalImages))));
+  createHTML(sortedGallery("views", currentLayout));
 });
 
 rateBtn.addEventListener("click", () => {
   galleryContainer.innerHTML = "";
-  createHTML(sortedGallery("rate", genObjImgList(images(totalImages))));
+  createHTML(sortedGallery("rate", currentLayout));
 });
 
 randomBtn.addEventListener("click", () => {
   galleryContainer.innerHTML = "";
-  createHTML(sortedGallery("random", genObjImgList(images(totalImages))));
+  createHTML(sortedGallery("rate", genObjImgList(images(totalImages))));
 });
