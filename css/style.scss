@@ -159,7 +159,9 @@ html {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1em;
     padding: 1em;
+
     & a {
       font-weight: 600;
       text-decoration: none;
